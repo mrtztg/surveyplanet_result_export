@@ -25,7 +25,8 @@ class ArgsParser:
     def __init__(self):
         url_validator = Validator('.*app\\.surveyplanet\\.com/participants/.{10,}',
                                   "Question participants url",
-                                  "https://app.surveyplanet.com/participants/61a50e9876f392908f6c10a8")
+                                  "https://app.surveyplanet.com/participants/"
+                                  "61a50e9876f392908f6c10a8")
         arg_parser = argparse.ArgumentParser(
             description="Export survey results from SurveyPlanet.com.")
         arg_parser.add_argument('-u', '--username', type=str, help='Account email/username')

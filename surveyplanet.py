@@ -1,12 +1,10 @@
-import re
-
 from pandas import DataFrame
 from json import JSONDecodeError
 from time import time, sleep
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.chrome.options import Options
 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -40,7 +38,7 @@ try:
     print('opening website...')
     driver.get(args.question_participants_url)
     login_btn = WebDriverWait(driver, WAITING_TIMEOUT).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, '#login-button'))
+        ec.element_to_be_clickable((By.CSS_SELECTOR, '#login-button'))
     )
     driver.find_element_by_css_selector('#email').send_keys(args.acc_username)
     driver.find_element_by_css_selector('#password').send_keys(args.acc_password)
@@ -50,7 +48,7 @@ try:
     eye_button_of_first_el_css = ('#content .participant-list .participant-item'
                                   ' .content-list-options a.participant-details-button')
     first_item_view = WebDriverWait(driver, WAITING_TIMEOUT).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, eye_button_of_first_el_css))
+        ec.presence_of_element_located((By.CSS_SELECTOR, eye_button_of_first_el_css))
     )
     first_item_view.click()
     last_participant_url: str = ""
@@ -58,7 +56,7 @@ try:
     while True:
         answer_item_el_css = ".participant-details-list li.participant-details-item"
         WebDriverWait(driver, WAITING_TIMEOUT).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, answer_item_el_css))
+            ec.presence_of_element_located((By.CSS_SELECTOR, answer_item_el_css))
         )
         start_time = time()
 
@@ -78,7 +76,7 @@ try:
 
         pagination_el_css = 'span.sub-header-pagination-label'
         participant_pagination = WebDriverWait(driver, WAITING_TIMEOUT).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, pagination_el_css))
+            ec.presence_of_element_located((By.CSS_SELECTOR, pagination_el_css))
         ).text.strip()
 
         answers_items = driver.find_elements_by_css_selector(answer_item_el_css)
@@ -93,7 +91,7 @@ try:
 
         side_details_el_css = '#side-bar-header-details li span'
         WebDriverWait(driver, WAITING_TIMEOUT).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, side_details_el_css))
+            ec.presence_of_element_located((By.CSS_SELECTOR, side_details_el_css))
         )
         side_details = driver.find_elements_by_css_selector(side_details_el_css)
 
