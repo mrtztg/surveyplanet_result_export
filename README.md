@@ -1,4 +1,4 @@
-A cross-platform python based utility to export SurveyPlanet.com survey results.
+A cross-platform python based utility for export SurveyPlanet.com survey results.
 ___
 
 ### Requirements
