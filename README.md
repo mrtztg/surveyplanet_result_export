@@ -3,10 +3,10 @@ ___
 
 ### Requirements
 
-* **_A premium Scribd account_**
 * Python 3.6
 * Python module argparse
 * Python module selenium
+* Python module pandas
 
 ### Installation:
 
@@ -16,17 +16,10 @@ ___
 
 ### Usage:
 
-* Make a text file (e.g:my_links_file.txt) in script folder (alongside scribd_dl.py) and put books
-  url in it (one url per line). example:
+Export results of survey with this command (replace with your survey url):
+  ```shell
+  python surveyplanet.py -u "my_email" -p "my_password" -q "https://app.surveyplanet.com/participants/61050e9876f392908f6c53a8"
   ```
-  https://www.scribd.com/audiobook/265831522/Elon-Musk-Tesla-Spacex-and-the-Quest-for-a-Fantastic-Future
-  https://www.scribd.com/audiobook/366626161/Influence-The-Psychology-of-Persuasion
-  https://www.scribd.com/audiobook/237848637/The-Alchemist
-  ```
-* Download book with script. Sample:
-    ```shell
-    python surveyplanet.py -u "my_email" -p "my_password" -q "https://app.surveyplanet.com/participants/61050e9876f392908f6c53a8"
-    ```
 
 ### Advanced usage:
 
